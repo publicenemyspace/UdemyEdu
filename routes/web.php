@@ -38,10 +38,9 @@ Route::get('/single_instructor', [App\Http\Controllers\CategoryController::class
 
 //Dashboard Controller
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/add', [App\Http\Controllers\DashboardController::class, 'add'])->name('add');
+Route::get('/dashboard/add', [App\Http\Controllers\DashboardController::class, 'add'])->name('add');
 Route::get('/mycourses', [App\Http\Controllers\DashboardController::class, 'mycourses'])->name('mycourses');
 Route::get('/myprofile', [App\Http\Controllers\DashboardController::class, 'myprofile'])->name('myprofile');
-Route::get('/dashboardpage', [App\Http\Controllers\DashboardController::class, 'dashboardpage'])->name('dashboardpage');
-
+Route::post('/dashboard/addcourse', [App\Http\Controllers\DashboardController::class, 'addcourse'])->name('addcourse');
 
 

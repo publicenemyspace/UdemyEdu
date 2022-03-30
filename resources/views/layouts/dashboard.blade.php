@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from themefie.com/html/edufie/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Mar 2022 03:20:10 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,6 +97,9 @@
                     <a class="dashboard-item-menu"  href="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
                 <li class="nav-item">
+                    <a class="dashboard-item-menu"  href="/dashboard/add"><i class="fas fa-plus"></i></i>Add Course</a>
+                </li>
+                <li class="nav-item">
                     <a class="dashboard-item-menu"  href="/myprofile"><i class="fa fa-user"></i> My Profile</a>
                 </li>
                 <li class="nav-item">
@@ -116,7 +118,7 @@
                     <a class="dashboard-item-menu"  href="#"><i class="fa fa-shopping-cart"></i>Purchase History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="dashboard-item-menu"  href="/mycourses"><i class="fa fa-rocket"></i>My Courses</a>
+                    <a class="dashboard-item-menu"  href="/mycourses"><i class="fas fa-book"></i>My Courses</a>
                 </li>
                 <li class="nav-item">
                     <a class="dashboard-item-menu"  href="#"><i class="fas fa-money-check"></i>Earnings</a>
@@ -168,5 +170,4 @@
     <script src="{{ URL::asset('js/main.js');}}"></script>
 </body>
 
-<!-- Mirrored from themefie.com/html/edufie/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Mar 2022 03:20:12 GMT -->
 </html>

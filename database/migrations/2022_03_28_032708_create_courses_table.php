@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('instructor');
             $table->string('accessibility');
             $table->string('cost');
+            $table->string('photo');
+            $table->string('video');
             $table->text('description');
             $table->timestamps();
         });
