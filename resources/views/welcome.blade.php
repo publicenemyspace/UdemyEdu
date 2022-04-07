@@ -13,7 +13,7 @@
                 <div class="col-lg-4">
                     <div class="banner-user-area text-center h-100">
                         <div class="user-inner">
-                            <h5>Hi Hugo Fabry,</h5>
+                            <h5>Hi Welcome {{ Auth::user()->name }}! ,</h5>
                             <p>Welcome to Edufie,Keep learning in the moments that matter.</p>
                             <a class="btn btn-base" href="#">Start my free month</a>
                         </div>
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Let's start learning, Hugo Fabry</h2>
+                        <h2>Let's start learning, {{ Auth::user()->name }}</h2>                 
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -276,24 +276,27 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Trending now
+                        <h2>Programming Courses
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="course-slider owl-nav-none owl-carousel">
+                                            
+                    @if(count($Course)> 0)
+                    @foreach($Course as $Courses)
                         <div class="item">
                             <div class="single-course-wrap">
                                 <div class="thumb">
                                     <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/1.png');}}" alt="img">
+                                    <img src="storage/files/{{$Courses->photo}}" alt="img">
                                 </div>
                                 <div class="wrap-details">
-                                    <h6><a href="#">PHP for Beginners - Become a PHP Master - CMS Project</a></h6>
+                                    <h6><a href="/coursedetail/{{$Courses->id}}">{{$Courses->title}}</a></h6>
                                     <div class="user-area">
                                         <div class="user-details">
                                             <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
+                                            <a href="/coursedetail/{{$Courses->id}}">{{$Courses->instructor}}</a>
                                         </div>
                                         <div class="user-rating">
                                             <span><i class="fa fa-star"></i>
@@ -306,106 +309,19 @@
                                                 <a href="#">Development</a>
                                             </div>
                                             <div class="col-6 text-end">
-                                                <div class="price">$30</div>
+                                                <div class="/coursedetail/{{$Courses->id}}">{{$Courses->cost}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-red">Expert</a>
-                                    <img src="{{ URL::asset('img/course/2.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Best way learn fundamentals of design.</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-green">All Level</a>
-                                    <img src="{{ URL::asset('img/course/3.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">About latest tips news and course for Illustration 2021</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/4.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Email & Affiliate Marketing Mastermind</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+                        @else
+                        <p class="alert alert-danger"> No Programming course available <p>
+
+                        @endif
                     </div>
                 </div>
             </div>
@@ -419,24 +335,28 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Web Development
+                        <h2>Crypto Courses
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="course-slider owl-nav-none owl-carousel">
-                        <div class="item">
+
+                    @if(count($crypto_courses)> 0)
+                    @foreach($crypto_courses as $crypto_course)
+                      
+                    <div class="item">
                             <div class="single-course-wrap">
                                 <div class="thumb">
                                     <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/5.png');}}" alt="img">
+                                    <img style="width:407px !important; height:303px !important;"  src="storage/files/{{$crypto_course->photo}}" alt="img">
                                 </div>
                                 <div class="wrap-details">
-                                    <h6><a href="#">PHP for Beginners - Become a PHP Master - CMS Project</a></h6>
+                                    <h6><a href="/coursedetail/{{$crypto_course->id}}">{{$crypto_course->title}}</a></h6>
                                     <div class="user-area">
                                         <div class="user-details">
                                             <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
+                                            <a href="/coursedetail/{{$crypto_course->id}}">{{$crypto_course->instructor}}</a>
                                         </div>
                                         <div class="user-rating">
                                             <span><i class="fa fa-star"></i>
@@ -449,107 +369,21 @@
                                                 <a href="#">Development</a>
                                             </div>
                                             <div class="col-6 text-end">
-                                                <div class="price">$30</div>
+                                                <div class="/coursedetail/{{$crypto_course->id}}">{{$crypto_course->cost}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-red">Expert</a>
-                                    <img src="{{ URL::asset('img/course/6.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Best way learn fundamentals of design.</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-green">All Level</a>
-                                    <img src="{{ URL::asset('img/course/2.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">About latest tips news and course for Illustration 2021</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/7.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Email & Affiliate Marketing Mastermind</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                         @endforeach
+
+                        @else
+                        <p class="alert alert-danger"> No Crypto course available <p>
+
+                        @endif
                     </div>
+                
                 </div>
             </div>
         </div>
@@ -562,24 +396,28 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Digital Marketing
+                        <h2>Forex Courses
                         </h2>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="course-slider owl-nav-none owl-carousel">
+
+                    @if(count($forex_courses)> 0)
+                    @foreach($forex_courses as $forex_course)
+
                         <div class="item">
                             <div class="single-course-wrap">
                                 <div class="thumb">
                                     <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/5.png');}}" alt="img">
+                                    <img src="storage/files/{{$forex_course->photo}}" alt="img">
                                 </div>
                                 <div class="wrap-details">
-                                    <h6><a href="#">PHP for Beginners - Become a PHP Master - CMS Project</a></h6>
+                                    <h6><a href="/coursedetail/{{$forex_course->id}}">{{$forex_course->title}}</a></h6>
                                     <div class="user-area">
                                         <div class="user-details">
                                             <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
+                                            <a href="/coursedetail/{{$forex_course->id}}">{{$forex_course->instructor}}</a>
                                         </div>
                                         <div class="user-rating">
                                             <span><i class="fa fa-star"></i>
@@ -592,106 +430,20 @@
                                                 <a href="#">Development</a>
                                             </div>
                                             <div class="col-6 text-end">
-                                                <div class="price">$30</div>
+                                                <div class="/coursedetail/{{$forex_course->id}}">{{$forex_course->cost}}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-red">Expert</a>
-                                    <img src="{{ URL::asset('img/course/6.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Best way learn fundamentals of design.</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-green">All Level</a>
-                                    <img src="{{ URL::asset('img/course/2.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">About latest tips news and course for Illustration 2021</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-course-wrap">
-                                <div class="thumb">
-                                    <a href="#" class="cat cat-blue">Beginner</a>
-                                    <img src="{{ URL::asset('img/course/7.png');}}" alt="img">
-                                </div>
-                                <div class="wrap-details">
-                                    <h6><a href="#">Email & Affiliate Marketing Mastermind</a></h6>
-                                    <div class="user-area">
-                                        <div class="user-details">
-                                            <img src="{{ URL::asset('img/author/1.png');}}" alt="img">
-                                            <a href="#">Jessica Jessy</a>
-                                        </div>
-                                        <div class="user-rating">
-                                            <span><i class="fa fa-star"></i>
-                                                4.9</span>(76)
-                                        </div>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <a href="#">Development</a>
-                                            </div>
-                                            <div class="col-6 text-end">
-                                                <div class="price">$30</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+                        @else
+                        <p class="alert alert-danger"> No Forex course available <p>
+
+                        @endif
+                        
                     </div>
                 </div>
             </div>
@@ -990,3 +742,5 @@
 
 
 @endsection
+
+

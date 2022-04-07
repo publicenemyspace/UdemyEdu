@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
+
+        $Course = Course::where('category_id', 'Programming')->get();//programming courses
+        $crypto_courses = Course::where('category_id', 'Crypto')->get();
+        $forex_courses = Course::where('category_id', 'Forex')->get();
+
+       
+        return view('welcome', ['Course' => $Course, 'crypto_courses' => $crypto_courses, 'forex_courses' => $forex_courses]);       
+            
+           }
+    
 }

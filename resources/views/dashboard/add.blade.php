@@ -19,14 +19,14 @@
                             </div>
 
                             <select class="form-control" name="category_id" id="" >
-                            <option disabled selected>Category ID</option>
-                                <option value="1"> Programming</option>
-                                <option value="2"> Crypto</option>
-                                <option value="2"> Forex</option>
+                            <option disabled selected>Course Category</option>
+                                <option value="Programming"> Programming</option>
+                                <option value="Crypto"> Crypto</option>
+                                <option value="Forex"> Forex</option>
                             </select>
                             <br>
                             <select class="form-control" name="accessibility" id="" >
-                            <option disabled selected>Select category</option>
+                            <option disabled selected>Select accessibliity</option>
                                 <option value="paid"> Paid</option>
                                 <option value="free"> Free</option>
                             </select>

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    
+
     public function development(){
         return view('development');
     }
@@ -35,7 +38,15 @@ class CategoryController extends Controller
     }
 
    
-
+  /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
 
 }

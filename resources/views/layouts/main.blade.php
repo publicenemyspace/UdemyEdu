@@ -84,8 +84,8 @@
                                 <li><a href="/instructor">Instructor</a></li>
                                 <li><a href="/single_instructor">Single Instructor</a></li>
                                 <li><a href="/dashboard">Dashboard</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/register">Register</a></li>
                             </ul>
                         </li>
                         <li>
@@ -95,12 +95,45 @@
                 </div>
                 <div class="nav-right-part nav-right-part-desktop">
                     <ul>
-                        <li><a href="#"><i class="far fa-heart"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-basket"></i></a></li>
-                        <li><a href="#"><img src="{{ URL::asset('img/author/2.png');}}" alt="img"></a></li>
+                    @guest
+                            @if (Route::has('login'))
+                             
+                                    <a class="nav-link" href="{{ route('login') }}"><u>{{ __('Login') }}</u></a>
+                           
+                            @endif
+
+                            @if (Route::has('register'))
+                               
+                                    <a class="nav-link" href="{{ route('register') }}"><u>{{ __('Register') }}</u></a>
+                               
+                            @endif
+                        @else
+                            <span class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <strong>Hello Welcome {{ Auth::user()->name }}! </strong>
+									
+									<small class="title text-muted">Logout</small>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
             </div>
+            
         </nav>
     </header>
 

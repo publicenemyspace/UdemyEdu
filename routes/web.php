@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 
 
@@ -44,3 +43,6 @@ Route::get('/myprofile', [App\Http\Controllers\DashboardController::class, 'mypr
 Route::post('/dashboard/addcourse', [App\Http\Controllers\DashboardController::class, 'addcourse'])->name('addcourse');
 
 
+
+//Course Controller
+Route::get('/coursedetail/{id}', [App\Http\Controllers\CourseController::class, 'course_detail'])->name('course_detail');

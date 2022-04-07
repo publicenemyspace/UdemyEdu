@@ -91,7 +91,7 @@
 
         <!-- dashboard-left-menu start  -->
         <div class="dashboard-left-menu">
-            <a href="#" class="logo"><img src="{{ URL::asset('img/logo.png');}}" alt="img"></a>
+            <a href="/" class="logo"><img src="{{ URL::asset('img/logo.png');}}" alt="img"></a>
             <ul>
                 <li class="nav-item">
                     <a class="dashboard-item-menu"  href="/dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
